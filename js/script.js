@@ -16,27 +16,40 @@ let myInterval;
 let barLength=1;
 
 // --- FUNCTIONs
+
+
 function startCounter(){
+  myInterval =  setInterval(conteggioFunc, 1000);
 
   if (typeof(myInterval) != "undefined") { return ; }
-  // continua tu
+ 
+  
 }
 
 function stopCounter(){
+   clearInterval(myInterval)
 
-  if (typeof(myInterval) == "undefined") { return ; }
-  // continua tu
+  if (typeof(myInterval) == "undefined") { return ; }   
+  
 }
 
 function conteggioFunc(){
   second++
+  domSecond.innerText= second;
+  
   if (second >= 60) {
     second=0
     minute++
-  }
-   // continua tu
+    domMinute.innerText= minute;
+  }else if(minute >= 60 ){
+    minute = 0
+    hour++;
+    domHour.innerText= hour;}
+  
+ 
    console.log("tic")
 }
+
 
  
 // --- MAIN
